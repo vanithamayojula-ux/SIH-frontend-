@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router";
 import {
   LayoutDashboard, User, BarChart3, AlertTriangle, Map, BookOpen,
-  ClipboardList, FileText, Bot, LogOut, ChevronRight, Zap,
+  ClipboardList, FileText, Bot, LogOut, ChevronRight, ShieldCheck,
   Sun, Moon, Monitor,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
@@ -16,7 +16,7 @@ const NAV_ITEMS = [
   { path: "/courses",      icon: BookOpen,        label: "Courses" },
   { path: "/assessments",  icon: ClipboardList,   label: "Assessments" },
   { path: "/documents",    icon: FileText,        label: "Documents" },
-  { path: "/assistant",    icon: Bot,             label: "AI Coach" },
+  { path: "/assistant",    icon: Bot,             label: "Learning Advisory" },
 ];
 
 const THEME_OPTIONS: Array<{ value: ThemeMode; icon: React.ElementType; label: string }> = [
@@ -63,14 +63,14 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       >
         {/* Logo */}
         <div className="flex items-center gap-3 px-5 h-16 border-b border-slate-200/80 flex-shrink-0">
-          <div className="w-8 h-8 rounded-lg bg-[#2563EB] flex items-center justify-center flex-shrink-0 shadow-xs">
-            <Zap size={16} className="text-white" />
+          <div className="w-8 h-8 rounded-lg bg-[#059669] flex items-center justify-center flex-shrink-0 shadow-xs">
+            <ShieldCheck size={18} className="text-white" />
           </div>
           <div>
-            <div className="text-sm font-extrabold leading-tight tracking-tight text-[#0A2540]" style={{ fontFamily: "var(--font-display)" }}>
+            <div className="text-sm font-extrabold leading-tight tracking-tight text-[#065F46]" style={{ fontFamily: "var(--font-display)" }}>
               SkillSaarthi
             </div>
-            <div className="text-[10px] text-slate-400 font-mono tracking-widest uppercase">AI · Demo</div>
+            <div className="text-[10px] text-slate-400 font-mono tracking-widest uppercase">MoSPI Edition</div>
           </div>
         </div>
 
@@ -84,14 +84,14 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               className={({ isActive }) =>
                 `group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-150 ${
                   isActive
-                    ? "bg-[#2563EB] text-white shadow-xs"
-                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                    ? "bg-[#059669] text-white shadow-xs"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-emerald-50/60"
                 }`
               }
             >
               {({ isActive }) => (
                 <>
-                  <Icon size={16} className={`flex-shrink-0 ${isActive ? "text-white" : "text-slate-500 group-hover:text-slate-900"}`} />
+                  <Icon size={16} className={`flex-shrink-0 ${isActive ? "text-white" : "text-slate-500 group-hover:text-emerald-700"}`} />
                   <span className="flex-1">{label}</span>
                   {isActive && <ChevronRight size={12} className="opacity-70" />}
                 </>
@@ -114,7 +114,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                   className={`
                     flex-1 flex flex-col items-center gap-1 py-1.5 rounded-lg text-[10px] font-semibold transition-all duration-150
                     ${mode === value
-                      ? "bg-[#2563EB] text-white shadow-xs"
+                      ? "bg-[#059669] text-white shadow-xs"
                       : "text-slate-500 hover:text-slate-800 hover:bg-slate-200/60"}
                   `}
                 >
@@ -128,9 +128,9 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
         {/* Demo badge + logout */}
         <div className="p-3 border-t border-slate-200/80 flex-shrink-0 space-y-2">
-          <div className="px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
-            <div className="text-[10px] font-mono font-bold text-amber-700 uppercase tracking-wider">Demo Mode</div>
-            <div className="text-[11px] text-slate-600 mt-0.5">Synthetic data only</div>
+          <div className="px-3 py-2 rounded-xl bg-emerald-50 border border-emerald-200">
+            <div className="text-[10px] font-mono font-bold text-emerald-800 uppercase tracking-wider">Official Portal</div>
+            <div className="text-[11px] text-emerald-700 mt-0.5">Statistical Service Registry</div>
           </div>
           <button
             onClick={handleLogout}

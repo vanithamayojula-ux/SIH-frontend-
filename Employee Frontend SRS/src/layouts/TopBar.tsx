@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Menu, Bell, CheckCircle, TrendingUp, BookOpen, FileText, Sparkles, Search } from "lucide-react";
+import { Menu, Bell, CheckCircle, TrendingUp, BookOpen, FileText, Target, Search } from "lucide-react";
 import { DEMO_USER, DEMO_PROFILE } from "../data/mockData";
 import { useAuth } from "../context/AuthContext";
 
@@ -22,11 +22,11 @@ interface Notification {
 const SAMPLE_NOTIFICATIONS: Notification[] = [
   {
     id: "n1",
-    icon: Sparkles,
-    iconColor: "text-[var(--color-blue-primary)]",
-    iconBg: "bg-[var(--color-blue-muted)]",
-    title: "New AI recommendation",
-    body: "Machine Learning Fundamentals added to your learning path.",
+    icon: Target,
+    iconColor: "text-[#059669]",
+    iconBg: "bg-emerald-50",
+    title: "Diagnostic Recommendation",
+    body: "Machine Learning Fundamentals added to your personalized learning path.",
     time: "2 min ago",
     read: false,
   },
@@ -53,8 +53,8 @@ const SAMPLE_NOTIFICATIONS: Notification[] = [
   {
     id: "n4",
     icon: BookOpen,
-    iconColor: "text-[var(--color-blue-primary)]",
-    iconBg: "bg-[var(--color-blue-muted)]",
+    iconColor: "text-[#059669]",
+    iconBg: "bg-emerald-50",
     title: "Course milestone",
     body: "35% through Python for Data Analysis. Keep going!",
     time: "2 days ago",
@@ -105,30 +105,30 @@ export function TopBar({ onMenuClick, onCmdPalette }: TopBarProps) {
   }, [notifOpen]);
 
   return (
-    <header className="h-16 bg-[var(--color-surface)] border-b border-[var(--color-border)] flex items-center px-4 lg:px-6 gap-4 flex-shrink-0">
+    <header className="h-16 bg-white border-b border-slate-200 flex items-center px-4 lg:px-6 gap-4 flex-shrink-0 shadow-xs">
       <button
         onClick={onMenuClick}
-        className="lg:hidden p-2 rounded-lg hover:bg-[var(--color-muted)] transition-colors"
+        className="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
         aria-label="Open navigation"
       >
-        <Menu size={20} className="text-[var(--color-text-secondary)]" />
+        <Menu size={20} className="text-slate-600" />
       </button>
 
       {/* Command palette trigger */}
       <button
         onClick={onCmdPalette}
-        className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-muted)] hover:border-[var(--color-blue-primary)] transition-colors text-[var(--color-muted-fg)] hover:text-[var(--color-text)] flex-1 max-w-xs"
+        className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:border-[#059669] transition-colors text-slate-500 hover:text-slate-900 flex-1 max-w-xs"
         aria-label="Open command palette"
       >
         <Search size={13} />
         <span className="text-xs flex-1 text-left">Search…</span>
-        <span className="flex items-center gap-0.5 text-[10px] font-mono bg-[var(--color-surface)] border border-[var(--color-border)] px-1 py-0.5 rounded">
+        <span className="flex items-center gap-0.5 text-[10px] font-mono bg-white border border-slate-200 px-1 py-0.5 rounded text-slate-500">
           ⌘K
         </span>
       </button>
 
       <div className="flex-1 min-w-0 md:hidden">
-        <div className="text-xs text-[var(--color-muted-fg)] font-mono uppercase tracking-wider truncate">
+        <div className="text-xs text-slate-500 font-mono uppercase tracking-wider truncate">
           {DEMO_PROFILE.department}
         </div>
       </div>
@@ -140,8 +140,8 @@ export function TopBar({ onMenuClick, onCmdPalette }: TopBarProps) {
             onClick={() => setNotifOpen((o) => !o)}
             className={`relative p-2 rounded-lg transition-colors ${
               notifOpen
-                ? "bg-[var(--color-muted)] text-[var(--color-text)]"
-                : "hover:bg-[var(--color-muted)] text-[var(--color-text-secondary)] hover:text-[var(--color-text)]"
+                ? "bg-slate-100 text-slate-900"
+                : "hover:bg-slate-100 text-slate-600 hover:text-slate-900"
             }`}
             aria-label={`Notifications${unreadCount > 0 ? `, ${unreadCount} unread` : ""}`}
             aria-expanded={notifOpen}
@@ -151,7 +151,7 @@ export function TopBar({ onMenuClick, onCmdPalette }: TopBarProps) {
             {/* Badge */}
             {unreadCount > 0 && (
               <span
-                className="absolute -top-0.5 -right-0.5 flex items-center justify-center min-w-[16px] h-4 px-1 bg-[var(--color-blue-primary)] text-white text-[9px] font-bold font-mono rounded-full ring-2 ring-[var(--color-surface)] leading-none"
+                className="absolute -top-0.5 -right-0.5 flex items-center justify-center min-w-[16px] h-4 px-1 bg-[#059669] text-white text-[9px] font-bold font-mono rounded-full ring-2 ring-white leading-none"
                 aria-hidden="true"
               >
                 {unreadCount}
@@ -162,18 +162,18 @@ export function TopBar({ onMenuClick, onCmdPalette }: TopBarProps) {
           {/* Notification panel */}
           {notifOpen && (
             <div
-              className="absolute right-0 top-full mt-2 w-80 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl shadow-[var(--shadow-xl)] z-50 animate-fade-in overflow-hidden"
+              className="absolute right-0 top-full mt-2 w-80 bg-white border border-slate-200 rounded-2xl shadow-xl z-50 animate-fade-in overflow-hidden"
               role="dialog"
               aria-label="Notifications"
             >
               {/* Panel header */}
-              <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)]">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200">
                 <div>
-                  <span className="text-sm font-semibold text-[var(--color-text)]" style={{ fontFamily: "var(--font-display)" }}>
+                  <span className="text-sm font-bold text-[#065F46]" style={{ fontFamily: "var(--font-display)" }}>
                     Notifications
                   </span>
                   {unreadCount > 0 && (
-                    <span className="ml-2 text-[10px] font-mono font-bold bg-[var(--color-blue-primary)] text-white px-1.5 py-0.5 rounded-full">
+                    <span className="ml-2 text-[10px] font-mono font-bold bg-[#059669] text-white px-1.5 py-0.5 rounded-full">
                       {unreadCount} new
                     </span>
                   )}
@@ -181,7 +181,7 @@ export function TopBar({ onMenuClick, onCmdPalette }: TopBarProps) {
                 {unreadCount > 0 && (
                   <button
                     onClick={markAllRead}
-                    className="text-xs text-[var(--color-blue-primary)] font-medium hover:underline"
+                    className="text-xs text-[#059669] font-semibold hover:underline"
                   >
                     Mark all read
                   </button>
@@ -200,8 +200,8 @@ export function TopBar({ onMenuClick, onCmdPalette }: TopBarProps) {
                           prev.map((n) => n.id === notif.id ? { ...n, read: true } : n)
                         )
                       }
-                      className={`w-full flex items-start gap-3 px-4 py-3 text-left hover:bg-[var(--color-muted)] transition-colors border-b border-[var(--color-border)] last:border-0 ${
-                        !notif.read ? "bg-[var(--color-blue-muted)]/40" : ""
+                      className={`w-full flex items-start gap-3 px-4 py-3 text-left hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0 ${
+                        !notif.read ? "bg-emerald-50/50" : ""
                       }`}
                     >
                       <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 ${notif.iconBg}`}>
@@ -209,17 +209,17 @@ export function TopBar({ onMenuClick, onCmdPalette }: TopBarProps) {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-2">
-                          <span className={`text-xs font-semibold leading-snug ${notif.read ? "text-[var(--color-text-secondary)]" : "text-[var(--color-text)]"}`}>
+                          <span className={`text-xs font-semibold leading-snug ${notif.read ? "text-slate-600" : "text-slate-900"}`}>
                             {notif.title}
                           </span>
                           {!notif.read && (
-                            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-blue-primary)] flex-shrink-0 mt-1" aria-hidden="true" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#059669] flex-shrink-0 mt-1" aria-hidden="true" />
                           )}
                         </div>
-                        <p className="text-[11px] text-[var(--color-muted-fg)] mt-0.5 leading-relaxed line-clamp-2">
+                        <p className="text-[11px] text-slate-500 mt-0.5 leading-relaxed line-clamp-2">
                           {notif.body}
                         </p>
-                        <div className="text-[10px] text-[var(--color-muted-fg)] font-mono mt-1">{notif.time}</div>
+                        <div className="text-[10px] text-slate-400 font-mono mt-1">{notif.time}</div>
                       </div>
                     </button>
                   );
@@ -227,9 +227,9 @@ export function TopBar({ onMenuClick, onCmdPalette }: TopBarProps) {
               </div>
 
               {/* Footer */}
-              <div className="px-4 py-2.5 border-t border-[var(--color-border)]">
+              <div className="px-4 py-2.5 border-t border-slate-200">
                 <button
-                  className="w-full text-xs text-[var(--color-blue-primary)] font-medium text-center hover:underline"
+                  className="w-full text-xs text-[#059669] font-semibold text-center hover:underline"
                   onClick={() => setNotifOpen(false)}
                 >
                   View all notifications
@@ -242,19 +242,19 @@ export function TopBar({ onMenuClick, onCmdPalette }: TopBarProps) {
         {/* User avatar + info */}
         <div className="flex items-center gap-2.5 pl-1">
           <div
-            className="w-8 h-8 rounded-full bg-[var(--color-blue-primary)] flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+            className="w-8 h-8 rounded-full bg-[#059669] flex items-center justify-center text-white text-xs font-bold flex-shrink-0 shadow-xs"
             aria-hidden="true"
           >
             {initials}
           </div>
           <div className="hidden sm:block">
             <div
-              className="text-sm font-medium text-[var(--color-text)] leading-tight"
+              className="text-sm font-bold text-[#065F46] leading-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
               {displayName}
             </div>
-            <div className="text-[11px] text-[var(--color-muted-fg)]">{displayRole}</div>
+            <div className="text-[11px] text-slate-500">{displayRole}</div>
           </div>
         </div>
       </div>

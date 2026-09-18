@@ -34,14 +34,14 @@ body,
   /* Backwards-compat alias */
   --color-muted: #f1f5f9;
 
-  /* Brand */
+  /* Brand - Emerald & Gold (No Blue) */
   --color-navy-950: #ffffff;
   --color-navy-900: #ffffff;
   --color-navy-800: #f8fafc;
   --color-navy-700: #e2e8f0;
-  --color-blue-primary: #2563eb;
-  --color-blue-light: #3b82f6;
-  --color-blue-muted: #eff6ff;
+  --color-blue-primary: #059669;
+  --color-blue-light: #10b981;
+  --color-blue-muted: #ecfdf5;
 
   /* Status */
   --color-success: #16a34a;
@@ -56,23 +56,23 @@ body,
   --color-high: #ea580c;
   --color-high-bg: #fff7ed;
   --color-high-fg: #c2410c;
-  --color-info: #0ea5e9;
-  --color-info-bg: #f0f9ff;
-  --color-info-fg: #0369a1;
+  --color-info: #059669;
+  --color-info-bg: #ecfdf5;
+  --color-info-fg: #047857;
   --color-caution-bg: #fffbeb;
   --color-caution-fg: #92400e;
-  --color-sky: #0ea5e9;
+  --color-sky: #10b981;
   --color-teal: #0d9488;
 
   /* Charts */
-  --chart-1: #1b4fd8;
-  --chart-2: #0ea5e9;
-  --chart-3: #16a34a;
-  --chart-4: #d97706;
+  --chart-1: #059669;
+  --chart-2: #10b981;
+  --chart-3: #d97706;
+  --chart-4: #0284c7;
   --chart-grid: #e2e8f0;
 
   /* Focus */
-  --color-focus-ring: #1b4fd8;
+  --color-focus-ring: #059669;
 
   /* Font families */
   --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -89,53 +89,53 @@ body,
   --radius-sm: 4px;
   --radius: 8px;
   --radius-lg: 12px;
-  /* Custom Calm Intelligence Theme Variables */
-  --color-primary-navy: #0A2540;
-  --color-secondary-indigo: #3A7BD5;
-  --color-accent-cyan: #00D4FF;
-  --color-bg-offwhite: #F7F9FC;
-  --color-text-dark: #1F2937;
+  /* Custom Executive Theme Variables (Emerald & Gold) */
+  --color-primary-navy: #065F46;
+  --color-secondary-indigo: #059669;
+  --color-accent-cyan: #D97706;
+  --color-bg-offwhite: #F8FAFC;
+  --color-text-dark: #0F172A;
 }
 
-/* Calm Intelligence Custom Utilities */
+/* Custom Executive Utilities */
 .bg-offwhite {
-  background-color: #F7F9FC;
+  background-color: #F8FAFC;
 }
 
 .text-dark-gray {
-  color: #1F2937;
+  color: #0F172A;
 }
 
 .bg-primary-navy {
-  background-color: #0A2540;
+  background-color: #065F46;
 }
 
 .bg-secondary-indigo {
-  background-color: #3A7BD5;
+  background-color: #059669;
 }
 
 .text-primary-navy {
-  color: #0A2540;
+  color: #065F46;
 }
 
 .text-secondary-indigo {
-  color: #3A7BD5;
+  color: #059669;
 }
 
 .text-accent-cyan {
-  color: #00D4FF;
+  color: #D97706;
 }
 
 .border-accent-cyan {
-  border-color: #00D4FF;
+  border-color: #D97706;
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 10px 30px -5px rgba(10, 37, 64, 0.05), 0 4px 12px -2px rgba(10, 37, 64, 0.03);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px -5px rgba(6, 95, 70, 0.05), 0 4px 12px -2px rgba(6, 95, 70, 0.03);
 }
 
 .glass-card-dark {
