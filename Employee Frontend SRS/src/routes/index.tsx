@@ -5,6 +5,8 @@ import { AdminShell } from "../layouts/AdminShell";
 import { ProtectedRoute } from "../layouts/ProtectedRoute";
 import { RoleGuard } from "../layouts/RoleGuard";
 
+import LandingPage from "../pages/landing/LandingPage";
+
 // ─── Employee pages (eager) ───────────────────────────────────────────────────
 import LoginPage from "../pages/auth/LoginPage";
 import RegisterPage from "../pages/auth/RegisterPage";
@@ -48,7 +50,9 @@ function SuspenseAdmin({ children }: { children: React.ReactNode }) {
 }
 
 export const router = createBrowserRouter([
-  // ─── Public auth routes ────────────────────────────────────────────────────
+  // ─── Public routes ─────────────────────────────────────────────────────────
+  { path: "/",             Component: LandingPage },
+  { path: "/welcome",      Component: LandingPage },
   { path: "/login",        Component: LoginPage },
   { path: "/register",     Component: RegisterPage },
   { path: "/admin-verify", Component: AdminVerifyPage },

@@ -89,8 +89,85 @@ body,
   --radius-sm: 4px;
   --radius: 8px;
   --radius-lg: 12px;
-  --radius-xl: 16px;
+  /* Custom Calm Intelligence Theme Variables */
+  --color-primary-navy: #0A2540;
+  --color-secondary-indigo: #3A7BD5;
+  --color-accent-cyan: #00D4FF;
+  --color-bg-offwhite: #F7F9FC;
+  --color-text-dark: #1F2937;
 }
+
+/* Calm Intelligence Custom Utilities */
+.bg-offwhite {
+  background-color: #F7F9FC;
+}
+
+.text-dark-gray {
+  color: #1F2937;
+}
+
+.bg-primary-navy {
+  background-color: #0A2540;
+}
+
+.bg-secondary-indigo {
+  background-color: #3A7BD5;
+}
+
+.text-primary-navy {
+  color: #0A2540;
+}
+
+.text-secondary-indigo {
+  color: #3A7BD5;
+}
+
+.text-accent-cyan {
+  color: #00D4FF;
+}
+
+.border-accent-cyan {
+  border-color: #00D4FF;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px -5px rgba(10, 37, 64, 0.05), 0 4px 12px -2px rgba(10, 37, 64, 0.03);
+}
+
+.glass-card-dark {
+  background: rgba(10, 37, 64, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(10, 37, 64, 0.25);
+}
+
+.cyan-glow {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.25);
+}
+
+.cyan-glow-sm {
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
+}
+
+.cyan-glow-border {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
 
 /* ─── Dark tokens ─── */
 html.dark {
