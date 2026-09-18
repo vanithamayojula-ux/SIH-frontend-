@@ -17,7 +17,7 @@ body,
   color-scheme: light;
 
   /* Structural surfaces */
-  --color-canvas: #f4f7fb;
+  --color-canvas: #f8fafc;
   --color-surface: #ffffff;
   --color-surface-elevated: #ffffff;
   --color-surface-muted: #f1f5f9;
@@ -27,21 +27,21 @@ body,
   --color-border-strong: #cbd5e1;
 
   /* Text */
-  --color-text: #0f172a;
+  --color-text: #111827;
   --color-text-secondary: #475569;
-  --color-muted-fg: #94a3b8;
+  --color-muted-fg: #64748b;
 
   /* Backwards-compat alias */
   --color-muted: #f1f5f9;
 
   /* Brand */
-  --color-navy-950: #060d1a;
-  --color-navy-900: #0f1c2e;
-  --color-navy-800: #162236;
-  --color-navy-700: #1e3048;
-  --color-blue-primary: #1b4fd8;
-  --color-blue-light: #3b6ef5;
-  --color-blue-muted: #dbeafe;
+  --color-navy-950: #ffffff;
+  --color-navy-900: #ffffff;
+  --color-navy-800: #f8fafc;
+  --color-navy-700: #e2e8f0;
+  --color-blue-primary: #2563eb;
+  --color-blue-light: #3b82f6;
+  --color-blue-muted: #eff6ff;
 
   /* Status */
   --color-success: #16a34a;

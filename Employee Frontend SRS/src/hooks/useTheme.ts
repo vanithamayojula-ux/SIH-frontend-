@@ -6,11 +6,11 @@ export type ResolvedTheme = "light" | "dark";
 const STORAGE_KEY = "skillsaarthi_theme";
 
 function getSystemTheme(): ResolvedTheme {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return "light";
 }
 
 function applyTheme(mode: ThemeMode) {
-  const resolved: ResolvedTheme = mode === "system" ? getSystemTheme() : mode;
+  const resolved: ResolvedTheme = mode === "system" ? "light" : mode;
   const root = document.documentElement;
   if (resolved === "dark") {
     root.classList.add("dark");
@@ -23,14 +23,15 @@ function applyTheme(mode: ThemeMode) {
 export function useTheme() {
   const [mode, setModeState] = useState<ThemeMode>(() => {
     try {
-      return (localStorage.getItem(STORAGE_KEY) as ThemeMode) ?? "system";
+      const stored = localStorage.getItem(STORAGE_KEY) as ThemeMode;
+      return stored === "dark" ? "dark" : "light";
     } catch {
-      return "system";
+      return "light";
     }
   });
 
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() =>
-    applyTheme((localStorage.getItem(STORAGE_KEY) as ThemeMode) ?? "system")
+    applyTheme("light")
   );
 
   const setMode = useCallback((next: ThemeMode) => {
