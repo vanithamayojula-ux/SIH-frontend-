@@ -6,6 +6,7 @@ import { ProtectedRoute } from "../layouts/ProtectedRoute";
 import { RoleGuard } from "../layouts/RoleGuard";
 
 import LandingPage from "../pages/landing/LandingPage";
+import PresentationPage from "../pages/presentation/PresentationPage";
 
 // ─── Employee pages (eager) ───────────────────────────────────────────────────
 import LoginPage from "../pages/auth/LoginPage";
@@ -53,6 +54,8 @@ export const router = createBrowserRouter([
   // ─── Public routes ─────────────────────────────────────────────────────────
   { path: "/",             Component: LandingPage },
   { path: "/welcome",      Component: LandingPage },
+  { path: "/presentation", Component: PresentationPage },
+  { path: "/deck",         Component: PresentationPage },
   { path: "/login",        Component: LoginPage },
   { path: "/register",     Component: RegisterPage },
   { path: "/admin-verify", Component: AdminVerifyPage },
